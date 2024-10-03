@@ -1,9 +1,13 @@
-import { headers } from "next/headers";
+import {headers} from 'next/headers';
 
 export default function Home() {
   return (
-    <pre className="flex p-4">
-      {JSON.stringify(Array.from(headers().entries()), null, 2)}
-    </pre>
+    <div className="flex flex-col gap-4 p-4">
+      <pre>
+        VERCEL_PROJECT_PRODUCTION_URL:{' '}
+        {process.env.VERCEL_PROJECT_PRODUCTION_URL}
+      </pre>
+      <pre>{JSON.stringify(Array.from(headers().entries()), null, 2)}</pre>
+    </div>
   );
 }
